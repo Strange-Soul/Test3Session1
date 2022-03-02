@@ -1,1 +1,134 @@
 
+(gdb) b main
+Breakpoint 1 at 0x8c6: file p1original.c, line 27.
+(gdb) r
+Starting program: /home/runner/Test3Session1-3/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+
+Breakpoint 1, main () at p1original.c:27
+27  {
+(gdb) n
+29    input(&x1,&y1,&x2,&y2);
+(gdb) s
+input (num1=0x7ffdd25658e0, den1=0x7ffdd25658e4, num2=0x7ffdd25658e8, 
+    den2=0x7ffdd25658ec) at p1original.c:4
+4     printf("Enter the 1st Fraction \n");
+(gdb) n
+Enter the 1st Fraction 
+5     scanf("%d %d",num1,den1);
+(gdb) n
+1
+2
+6     printf("Enter the 2st Fraction \n");
+(gdb) n
+Enter the 2st Fraction 
+7     scanf("%d %d",num2,den2);
+(gdb) n
+1
+4
+8   }
+(gdb) n
+main () at p1original.c:30
+30    add(x1,y1,x2,y2,&x3,&y3);
+(gdb) s
+add (num1=1, den1=2, num2=1, den2=4, num3=0x7ffdd25658f0, den3=0x7ffdd25658f4)
+    at p1original.c:12
+12    p=num1*den2+num2*den1;
+(gdb) p p
+$1 = -766093088
+(gdb) n
+13    q=den1*den2;
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) p i
+$2 = -766093084
+(gdb) n
+15        if(p%i==0 && q%i==0)
+(gdb) p i
+$3 = 1
+(gdb) p p
+$4 = 6
+(gdb) 
+$5 = 6
+(gdb) p q
+$6 = 8
+(gdb) n
+17          gcd=i;
+(gdb) p gcd
+$7 = 32765
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) p i
+$8 = 1
+(gdb) p gcd
+$9 = 1
+(gdb) n
+15        if(p%i==0 && q%i==0)
+(gdb) n
+17          gcd=i;
+(gdb) p gcd
+$10 = 1
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) n
+15        if(p%i==0 && q%i==0)
+(gdb) p p%i
+$11 = 0
+(gdb) p q%i
+$12 = 2
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) n
+15        if(p%i==0 && q%i==0)
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) n
+15        if(p%i==0 && q%i==0)
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) n
+15        if(p%i==0 && q%i==0)
+(gdb) p i
+$13 = 6
+(gdb) n
+14    for(i=1;i<=p && i<=q;i++)
+(gdb) p p%i
+$14 = 0
+(gdb) p p
+$15 = 6
+(gdb) 
+$16 = 6
+(gdb) 
+$17 = 6
+(gdb) 
+$18 = 6
+(gdb) p q%i
+$19 = 2
+(gdb) n
+19    *num3=p/gcd;
+(gdb) p *num3
+$20 = -766092832
+(gdb) n
+20    *den3=q/gcd;
+(gdb) p *num3
+$21 = 3
+(gdb) p *den3
+$22 = 32765
+(gdb) n
+21  }
+(gdb) p *den3
+$23 = 4
+(gdb) n
+main () at p1original.c:31
+31   output(x1,y1,x2,y2,x3,y3);
+(gdb) s
+output (num1=1, den1=2, num2=1, den2=4, num3=3, den3=4) at p1original.c:24
+24    printf("Sum of two Fractions %d/%d and %d/%d is : %d/%d \n", num1, den1, num2, den2, num3, den3);
+(gdb) n
+Sum of two Fractions 1/2 and 1/4 is : 3/4 
+25  }
+(gdb) n
+main () at p1original.c:32
+32  return 0;
+(gdb) c
+Continuing.
