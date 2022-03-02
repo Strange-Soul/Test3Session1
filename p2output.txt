@@ -1,1 +1,124 @@
-
+(gdb) b main
+Breakpoint 1 at 0x89d: file p2original.c, line 39.
+(gdb) r
+Starting program: /home/runner/Test3Session1-3/a.out 
+warning: Error disabling address space randomization: Operation not permitted
+n
+Breakpoint 1, main () at p2original.c:39
+39    x=input_fraction();
+(gdb) s
+input_fraction () at p2original.c:10
+10  {
+(gdb) n
+12    printf("Enter a Fraction \n");
+(gdb) n
+Enter a Fraction 
+13    scanf("%d %d",&f.num,&f.den);
+(gdb) n
+2
+2
+14    return f;
+(gdb) n
+15  }
+(gdb) n
+main () at p2original.c:40
+40    y=input_fraction();
+(gdb) s
+input_fraction () at p2original.c:10
+10  {
+(gdb) n
+12    printf("Enter a Fraction \n");
+(gdb) n
+Enter a Fraction 
+13    scanf("%d %d",&f.num,&f.den);
+(gdb) n
+4
+2
+14    return f;
+(gdb) n
+15  }
+(gdb) n
+main () at p2original.c:41
+41    z=input_fraction();
+(gdb) s
+input_fraction () at p2original.c:10
+10  {
+(gdb) n
+12    printf("Enter a Fraction \n");
+(gdb) n
+Enter a Fraction 
+13    scanf("%d %d",&f.num,&f.den);
+(gdb) n
+6
+2
+14    return f;
+(gdb) n
+15  }
+(gdb) n
+main () at p2original.c:42
+42    result=Largest_fraction(x,y,z);
+(gdb) s
+Largest_fraction (f1=..., f2=..., f3=...) at p2original.c:20
+20    p=f1.num/f1.den;
+(gdb) p f1.num
+$1 = 2
+(gdb) p f1.den
+$2 = 2
+(gdb) n
+21    q=f2.num/f2.den;
+(gdb) p p
+$3 = 1
+(gdb) p q
+$4 = 6
+(gdb) p f2.num
+$5 = 4
+(gdb) p f2.den
+$6 = 2
+(gdb) p q
+$7 = 6
+(gdb) n
+22    r=f3.num/f3.den;
+(gdb) p r
+$8 = 2
+(gdb) p f3.num
+$9 = 6
+(gdb) p f3.den
+$10 = 2
+(gdb) p r
+$11 = 2
+(gdb) p p
+$12 = 1
+(gdb) p q
+$13 = 2
+(gdb) p r
+$14 = 2
+(gdb) n
+23    if(p>q && p>r )
+(gdb) p r
+$15 = 3
+(gdb) p q
+$16 = 2
+(gdb) p p
+$17 = 1
+(gdb) n
+25    else if(q>r && q>p)
+(gdb) n
+28      large=f3;
+(gdb) n
+29    return large;
+(gdb) n
+30  }
+(gdb) n
+main () at p2original.c:43
+43    output(x,y,z,result);
+(gdb) s
+output (f1=..., f2=..., f3=..., largest=...) at p2original.c:33
+33  printf("Largest Fraction among %d/%d , %d/%d and %d/%d is %d/%d \n",f1.num,f1.den,f2.num,f2.den,f3.num,f3.den,largest.num,largest.den);
+(gdb) n
+Largest Fraction among 2/2 , 4/2 and 6/2 is 6/2 
+35  }
+(gdb) n
+main () at p2original.c:44
+44    return 0;
+(gdb) c
+Continuing.
