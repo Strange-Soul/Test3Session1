@@ -35,7 +35,8 @@ void out_put(int n,float a[n],float x,float result)
   printf("Sum of %d polynomial is \n",n);
 for(int i=n;i>0;i--)
   {
-    printf("%f +\n",a[i]);
+    printf("%fx^%d + ",a[i],n);
+    printf("%fx^%d",a[n-1],n);
   }
   printf("%f \n",result);
 }
