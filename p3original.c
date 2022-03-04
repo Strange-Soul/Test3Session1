@@ -10,18 +10,19 @@ void input_n_and_r(int *n,int *r)
 int ncr(int n,int r)
 {
   int a,b,c,ncr;
-  for(int i=0;i<n;i++)
+  for(int i=1;i<n;i++)
     {
-      a=fact(n);
-      b=fact(n-r);
-      c=fact(r);
+      a=n*i;
+      b=(n-r)*i;
+      c=(r)*i;
       ncr=a/(b*c);
     }
+    
   return ncr;
 }
 void output(int n,int r,int result)
 {
-  printf("The n^Cr of n=%d and r=%d is %d \n",n,r,result);
+  printf("The %d^C%d is %d \n",n,r,result);
 }
 int main()
 {
