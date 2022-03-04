@@ -7,14 +7,23 @@ void input_n_and_r(int *n,int *r)
   printf("Please Enter r value \n");
   scanf("%d",r);
 }
+int fact(int n)
+{
+  int fact=1;
+  for(int i=1;i<n;i++)
+    {
+      fact=fact*i;
+    }
+  return fact;
+}
 int ncr(int n,int r)
 {
   int a,b,c,ncr;
   for(int i=1;i<n;i++)
     {
-      a=n*i;
-      b=(n-r)*i;
-      c=(r)*i;
+      a=fact(n);
+      b=fact(n);
+      c=fact(n);
       ncr=a/(b*c);
     }
     
