@@ -10,28 +10,21 @@ void input_array(int n,int a[n])
 {
   printf("Enter the Elements of Array \n");
   for(int i=0;i<n;i++)
-    a[i]=input_size();
+  scanf("%d",&a[i]);
 }
 int find_largest(int n,int a[n])
 {
-  for(int i=0;i<n;i++)
-    {
-      if(a[0]>a[i])
-       {
-         i++;
-         return 1;
-       }
-      else
-       {
-         a[i]=0;
-         return -1; 
-       } 
-    }
+  int i,largest=0;
+  for(i=1;i<n;i++)
+   {
+     if(a[i]>a[largest])
+       largest=i;
+   }
+   return largest;
 }
 void output(int n,int a[n],int largest)
 {
-  for(int i=0;i<n;i++)
- printf(" Index of Largest Number in an Array is %d\n ",n);
+ printf(" Index of Largest Number in an Array is %d at index=%d\n ",a[largest],largest);
 }
 int main()
 {
